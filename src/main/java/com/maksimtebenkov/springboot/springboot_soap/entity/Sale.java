@@ -21,25 +21,14 @@ public class Sale {
     @Column(name = "check_number")
     private int checkNumber;
 
-    @Column(name = "total_price")
-    private BigDecimal totalPrice;
-
-    @Column(name = "final_price")
-    private BigDecimal finalPrice;
-
-    @Column(name = "final_discount_%")
-    private int finalDiscountInPercent;
-
     public Sale() {
     }
 
-    public Sale(int customerId, LocalDateTime date, int checkNumber, BigDecimal totalPrice, BigDecimal finalPrice, int finalDiscountInPercent) {
+    public Sale(int customerId, LocalDateTime date, int checkNumber) {
         this.customerId = customerId;
         this.date = date;
         this.checkNumber = checkNumber;
-        this.totalPrice = totalPrice;
-        this.finalPrice = finalPrice;
-        this.finalDiscountInPercent = finalDiscountInPercent;
+
     }
 
     public int getId() {
@@ -74,27 +63,4 @@ public class Sale {
         this.checkNumber = checkNumber;
     }
 
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public BigDecimal getFinalPrice() {
-        return finalPrice;
-    }
-
-    public void setFinalPrice(BigDecimal finalPrice) {
-        this.finalPrice = finalPrice;
-    }
-
-    public int getFinalDiscountInPercent() {
-        return finalDiscountInPercent;
-    }
-
-    public void setFinalDiscountInPercent(int finalDiscountInPercent) {
-        this.finalDiscountInPercent = finalDiscountInPercent;
-    }
 }
