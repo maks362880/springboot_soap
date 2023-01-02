@@ -17,7 +17,17 @@ public class CustomerService {
         return repository.findAll();
     }
 
-    public Customer save(Customer customer) {
+    public Customer saveCustomer(Customer customer) {
         return repository.save(customer);
     }
+
+    public Customer getCustomer(int id) {
+        return repository.getReferenceById(id);
+    }
+
+    public void deleteCustomer(int id) {
+        repository.deleteById(id);
+    }
+
+
 }
