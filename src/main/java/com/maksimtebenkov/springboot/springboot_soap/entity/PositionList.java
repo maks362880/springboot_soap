@@ -84,4 +84,16 @@ public class PositionList {
     public void setFinalDiscountInPercent(int finalDiscountInPercent) {
         this.finalDiscountInPercent = finalDiscountInPercent;
     }
+
+    @Override
+    public String toString() {
+        return "PositionList{" +
+                "id=" + id +
+                ", sale=" + sale +
+                ", goods=" + goods +
+                ", totalPrice=" + totalPrice +
+                ", finalPrice=" + finalPrice +
+                ", finalDiscountInPercent=" + finalDiscountInPercent +
+                '}';
+    }
 }
