@@ -8,7 +8,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "customer_id",nullable = false)
     private int id;
 
     @Column(name = "customer_name")
@@ -29,9 +29,6 @@ public class Customer {
         this.individualDiscount1 = individualDiscount1;
         this.individualDiscount2 = individualDiscount2;
     }
-
-
-
 
     public int getId() {
         return id;

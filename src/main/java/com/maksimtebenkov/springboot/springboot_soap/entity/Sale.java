@@ -1,25 +1,29 @@
 package com.maksimtebenkov.springboot.springboot_soap.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table(name = "sale")
 public class Sale {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private int id;
 
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", nullable = false)
     private int customerId;
 
-    @Column(name = "sale_date")
+    @Column(name = "sale_date", nullable = false)
     private LocalDateTime date;
 
-    @Column(name = "check_number")
+    @Column(name = "check_number", nullable = false)
     private int checkNumber;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sale")
+    private List<PositionList> positionLists;
+
 
     public Sale() {
     }
@@ -28,7 +32,6 @@ public class Sale {
         this.customerId = customerId;
         this.date = date;
         this.checkNumber = checkNumber;
-
     }
 
     public int getId() {
@@ -63,4 +66,21 @@ public class Sale {
         this.checkNumber = checkNumber;
     }
 
+    public List<PositionList> getPositionLists() {
+        return positionLists;
+    }
+
+    public void setPositionLists(List<PositionList> positionLists) {
+        this.positionLists = positionLists;
+    }
+
+    @Override
+    public String toString() {
+        return "Sale{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", date=" + date +
+                ", checkNumber=" + checkNumber +
+                '}';
+    }
 }

@@ -2,6 +2,7 @@ package com.maksimtebenkov.springboot.springboot_soap.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "goods")
@@ -9,7 +10,7 @@ public class Goods {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "goods_id",nullable = false)
     private int id;
 
     @Column(name = "product_name")
@@ -23,6 +24,9 @@ public class Goods {
 
     @Column(name = "customer_ratings")
     private BigDecimal customerRatings;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "goods")
+    private List<PositionList> positionList;
 
     public Goods() {
     }
@@ -72,5 +76,16 @@ public class Goods {
 
     public void setCustomerRatings(BigDecimal customerRatings) {
         this.customerRatings = customerRatings;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", ProductName='" + ProductName + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", customerRatings=" + customerRatings +
+                '}';
     }
 }
