@@ -2,6 +2,7 @@ package com.maksimtebenkov.springboot.springboot_soap.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,6 +34,14 @@ public class Sale {
         this.customerId = customerId;
         this.date = date;
         this.checkNumber = checkNumber;
+    }
+
+    public void addPositionListToSale(PositionList positionList) {
+        if (positionLists == null) {
+            positionLists = new ArrayList<>();
+        }
+        positionLists.add(positionList);
+        positionList.setSale(this);
     }
 
     public int getId() {

@@ -8,15 +8,17 @@ import java.math.BigDecimal;
 public class PositionList {
 
     @Id
-    @Column(name = "positin_list_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @ManyToOne(cascade = CascadeType.ALL)//поменять CascadeType.ALL
-    @JoinColumn(name = "sale_id")
+
+    @ManyToOne(cascade = CascadeType.ALL)//поменять CascadeType
+    @JoinColumn(name = "sale_id")//, insertable = false, updatable = false
     private Sale sale;
 
-    @ManyToOne(cascade = CascadeType.ALL)//поменять CascadeType.ALL
-    @JoinColumn(name = "goods_id")
+    @ManyToOne(cascade = CascadeType.ALL)//поменять CascadeType
+    @JoinColumn(name = "goods_id")//, insertable = false, updatable = false)
     private Goods goods;
 
     @Column(name = "total_price", nullable = false)

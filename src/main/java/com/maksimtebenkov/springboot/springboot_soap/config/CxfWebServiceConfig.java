@@ -2,7 +2,6 @@ package com.maksimtebenkov.springboot.springboot_soap.config;
 
 import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.CustomerWS;
 import org.apache.cxf.Bus;
-import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.apache.cxf.transport.servlet.CXFServlet;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -28,4 +28,6 @@ public class GoodsService {
     public void deleteGoods(int id) {
         repository.deleteById(id);
     }
+
+    public int getGoodsCount(){return repository.getGoodsCount();}
 }
