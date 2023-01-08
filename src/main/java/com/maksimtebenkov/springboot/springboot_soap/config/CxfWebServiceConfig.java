@@ -1,6 +1,9 @@
 package com.maksimtebenkov.springboot.springboot_soap.config;
 
 import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.CustomerWS;
+import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.GoodsWS;
+import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.PositionListWS;
+import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.SaleWS;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.apache.cxf.transport.servlet.CXFServlet;
@@ -33,4 +36,29 @@ public class CxfWebServiceConfig {
         endpoint.publish();
         return endpoint;
     }
+
+    @Bean
+    public EndpointImpl goodsWebService(GoodsWS goodsWS) {
+        EndpointImpl endpoint = new EndpointImpl(cxfBus, goodsWS);
+        endpoint.setAddress("/goodsWS");
+        endpoint.publish();
+        return endpoint;
+    }
+
+    @Bean
+    public EndpointImpl saleWebService(SaleWS saleWS) {
+        EndpointImpl endpoint = new EndpointImpl(cxfBus, saleWS);
+        endpoint.setAddress("/saleWS");
+        endpoint.publish();
+        return endpoint;
+    }
+
+    @Bean
+    public EndpointImpl positionListWebService(PositionListWS positionListWS) {
+        EndpointImpl endpoint = new EndpointImpl(cxfBus, positionListWS);
+        endpoint.setAddress("/positionListWS");
+        endpoint.publish();
+        return endpoint;
+    }
+
 }

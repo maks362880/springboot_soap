@@ -20,7 +20,7 @@ public class Goods {
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "product_discount_%")
+    @Column(name = "product_discount")
     private int productDiscountPercent;
 
     @Column(name = "description")

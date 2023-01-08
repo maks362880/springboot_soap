@@ -27,7 +27,7 @@ public class PositionList {
     @Column(name = "final_price", nullable = false)
     private BigDecimal finalPrice;
 
-    @Column(name = "final_discount_%", nullable = false)
+    @Column(name = "final_discount", nullable = false)
     private int finalDiscountInPercent;
 
     public PositionList() {
