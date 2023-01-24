@@ -4,6 +4,7 @@ import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.CustomerWS
 import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.GoodsWS;
 import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.PositionListWS;
 import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.SaleWS;
+
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
 import org.apache.cxf.transport.servlet.CXFServlet;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 import javax.servlet.Servlet;
+
 
 @Configuration
 @ImportResource({ "classpath:META-INF/cxf/cxf.xml" })
@@ -28,6 +30,7 @@ public class CxfWebServiceConfig {
         servletDef.setLoadOnStartup(1);
         return servletDef;
     }
+
 
     @Bean
     public EndpointImpl customerWebService(CustomerWS customerWS) {

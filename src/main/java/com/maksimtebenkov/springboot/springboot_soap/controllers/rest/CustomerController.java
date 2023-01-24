@@ -1,7 +1,7 @@
 package com.maksimtebenkov.springboot.springboot_soap.controllers.rest;
 
-import com.maksimtebenkov.springboot.springboot_soap.controllers.exeption_handling.CustomerIncorrectData;
-import com.maksimtebenkov.springboot.springboot_soap.controllers.exeption_handling.NoSuchCustomersExeption;
+import com.maksimtebenkov.springboot.springboot_soap.controllers.exeption.CustomerIncorrectData;
+import com.maksimtebenkov.springboot.springboot_soap.controllers.exeption.NoSuchObjectExсeption;
 import com.maksimtebenkov.springboot.springboot_soap.entity.Customer;
 import com.maksimtebenkov.springboot.springboot_soap.services.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +27,7 @@ public class CustomerController {
     public Customer getCustomer(@PathVariable int id) {
         Customer customer = customerService.getCustomer(id);
         if (customer == null) {
-            throw new NoSuchCustomersExeption("There are no customers with id = " + id +" in Database");
+            throw new NoSuchObjectExсeption("There are no customers with id = " + id +" in Database");
         }
         return customer;
     }
@@ -45,17 +45,17 @@ public class CustomerController {
     }
 
     @DeleteMapping("/customer/{id}")
-    public String deleteCustomer(@PathVariable int id) throws NoSuchCustomersExeption {
+    public String deleteCustomer(@PathVariable int id) throws NoSuchObjectExсeption {
         Customer customer = customerService.getCustomer(id);
         if (customer == null) {
-            throw new NoSuchCustomersExeption("There are no employee with id = " + id +" in Database");
+            throw new NoSuchObjectExсeption("There are no employee with id = " + id +" in Database");
         }
         customerService.deleteCustomer(id);
         return "Customer with ID = " + id + " was deleted";
     }
 
     @ExceptionHandler
-    public ResponseEntity<CustomerIncorrectData> handleExeption(NoSuchCustomersExeption exception){
+    public ResponseEntity<CustomerIncorrectData> handleException(NoSuchObjectExсeption exception){
         CustomerIncorrectData data = new CustomerIncorrectData();
         data.setInfo(exception.getMessage());
         return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);

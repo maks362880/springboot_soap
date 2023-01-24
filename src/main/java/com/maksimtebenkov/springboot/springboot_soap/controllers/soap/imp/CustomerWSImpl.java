@@ -1,5 +1,6 @@
-package com.maksimtebenkov.springboot.springboot_soap.controllers.soap;
+package com.maksimtebenkov.springboot.springboot_soap.controllers.soap.imp;
 
+import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.CustomerWS;
 import com.maksimtebenkov.springboot.springboot_soap.entity.Customer;
 import com.maksimtebenkov.springboot.springboot_soap.services.CustomerService;
 import lombok.RequiredArgsConstructor;

@@ -1,5 +1,6 @@
-package com.maksimtebenkov.springboot.springboot_soap.controllers.soap;
+package com.maksimtebenkov.springboot.springboot_soap.controllers.soap.imp;
 
+import com.maksimtebenkov.springboot.springboot_soap.controllers.soap.PositionListWS;
 import com.maksimtebenkov.springboot.springboot_soap.entity.PositionList;
 import com.maksimtebenkov.springboot.springboot_soap.services.PositionListService;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class PositionListWSImpl implements PositionListWS{
+public class PositionListWSImpl implements PositionListWS {
 
     private final PositionListService service;
 

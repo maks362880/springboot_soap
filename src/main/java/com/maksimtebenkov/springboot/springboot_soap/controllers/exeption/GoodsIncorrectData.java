@@ -1,9 +1,9 @@
-package com.maksimtebenkov.springboot.springboot_soap.controllers.exeption_handling;
+package com.maksimtebenkov.springboot.springboot_soap.controllers.exeption;
 
-public class CustomerIncorrectData {
+public class GoodsIncorrectData {
     private String info;
 
-    public CustomerIncorrectData() {
+    public GoodsIncorrectData() {
     }
 
     public String getInfo() {

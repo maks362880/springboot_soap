@@ -1,33 +1,18 @@
 package com.maksimtebenkov.springboot.springboot_soap.services;
 
-import com.maksimtebenkov.springboot.springboot_soap.dao.CustomerRepository;
 import com.maksimtebenkov.springboot.springboot_soap.entity.Customer;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.maksimtebenkov.springboot.springboot_soap.repository.CustomerRepository;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class CustomerService {
+public interface CustomerService
+{
 
-    private final CustomerRepository repository;
+    List<Customer> findAll();
 
-    public List<Customer> findAll() {
-        return repository.findAll();
-    }
+    Customer saveCustomer(Customer customer);
 
-    public Customer saveCustomer(Customer customer) {
-        return repository.save(customer);
-    }
+     Customer getCustomer(int id);
 
-    public Customer getCustomer(int id) {
-        return repository.getReferenceById(id);
-    }
-
-    public void deleteCustomer(int id) {
-        repository.deleteById(id);
-    }
-
-
+    void deleteCustomer(int id);
 }

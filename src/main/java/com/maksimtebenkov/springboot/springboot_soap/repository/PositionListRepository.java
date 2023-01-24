@@ -1,4 +1,4 @@
-package com.maksimtebenkov.springboot.springboot_soap.dao;
+package com.maksimtebenkov.springboot.springboot_soap.repository;
 
 import com.maksimtebenkov.springboot.springboot_soap.entity.PositionList;
 import org.springframework.data.jpa.repository.JpaRepository;
